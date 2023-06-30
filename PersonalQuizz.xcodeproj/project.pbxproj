@@ -14,7 +14,7 @@
 		E9EAB10F2A4DEE82003CF30F /* PersonalQuizz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9EAB10D2A4DEE82003CF30F /* PersonalQuizz.xcdatamodeld */; };
 		E9EAB1112A4DEE84003CF30F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAB1102A4DEE84003CF30F /* Assets.xcassets */; };
 		E9EAB1142A4DEE84003CF30F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAB1122A4DEE84003CF30F /* LaunchScreen.storyboard */; };
-		E9EAB1202A4E010D003CF30F /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAB11F2A4E010D003CF30F /* ModelUser.swift */; };
+		E9EAB1202A4E010D003CF30F /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAB11F2A4E010D003CF30F /* Questions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		E9EAB1102A4DEE84003CF30F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9EAB1132A4DEE84003CF30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9EAB1152A4DEE84003CF30F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9EAB11F2A4E010D003CF30F /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
+		E9EAB11F2A4E010D003CF30F /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		E9EAB1212A4E0147003CF30F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9EAB11F2A4E010D003CF30F /* ModelUser.swift */,
+				E9EAB11F2A4E010D003CF30F /* Questions.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9EAB1202A4E010D003CF30F /* ModelUser.swift in Sources */,
+				E9EAB1202A4E010D003CF30F /* Questions.swift in Sources */,
 				E9EAB1092A4DEE82003CF30F /* ViewController.swift in Sources */,
 				E9EAB10F2A4DEE82003CF30F /* PersonalQuizz.xcdatamodeld in Sources */,
 				E9EAB1052A4DEE82003CF30F /* AppDelegate.swift in Sources */,
