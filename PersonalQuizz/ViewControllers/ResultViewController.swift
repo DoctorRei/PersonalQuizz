@@ -13,6 +13,10 @@ class ResultViewController: UIViewController {
     @IBOutlet var labelResultFull: UILabel!
     
     var resultCamp: [Faculty] = []
+    var gryffindorTotal = 0
+    var hufflepuffTotal = 0
+    var ravenclawTotal = 0
+    var slytherinTotal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,25 +24,24 @@ class ResultViewController: UIViewController {
         print(resultCamp)
         print(type(of: resultCamp))
         checkResult(resultCamp)
-
+        checkUserHouse()
+        
     }
     
-
+    
     @IBAction func barButtonExit(_ sender: UIBarButtonItem) {
         view.window?.rootViewController?.dismiss(animated: true)
         
     }
     
-    func setupUI() {
+    // MARK: - Methods
     
+    func setupUI() {
+        
     }
     
     func checkResult(_ userFaculty: [Faculty]) {
         
-        var gryffindorTotal = 0
-        var hufflepuffTotal = 0
-        var ravenclawTotal = 0
-        var slytherinTotal = 0
         
         for i in userFaculty {
             if i == .gryffindor {
@@ -51,33 +54,53 @@ class ResultViewController: UIViewController {
                 slytherinTotal += 1
             }
         }
-        
+    }
+    
+    func isUserGriffindor() {
         if gryffindorTotal > hufflepuffTotal
-            && gryffindorTotal > ravenclawTotal
-            && gryffindorTotal > slytherinTotal {
+        && gryffindorTotal > ravenclawTotal
+        && gryffindorTotal > slytherinTotal {
             
             labelResult.text = "Гриффиндор! " + String(Faculty.gryffindor.rawValue)
             labelResultFull.text = Faculty.gryffindor.definition
-            
-        } else if hufflepuffTotal > gryffindorTotal
-                    && hufflepuffTotal > ravenclawTotal
-                    && hufflepuffTotal > slytherinTotal {
+        }
+    }
+    
+    func isUserHufflepuff() {
+        if hufflepuffTotal > gryffindorTotal
+        && hufflepuffTotal > ravenclawTotal
+        && hufflepuffTotal > slytherinTotal {
             
             labelResult.text = " Хаффлпафф! " + String(Faculty.hufflepuff.rawValue)
             labelResultFull.text = Faculty.hufflepuff.definition
             
-        } else if ravenclawTotal > gryffindorTotal && ravenclawTotal > hufflepuffTotal && ravenclawTotal > slytherinTotal {
+        }
+    }
+    
+    func isUserRavenclaw() {
+        if ravenclawTotal > gryffindorTotal
+            && ravenclawTotal > hufflepuffTotal
+            && ravenclawTotal > slytherinTotal {
             
             labelResult.text = "Равенкло! " + String(Faculty.ravenclaw.rawValue)
             labelResultFull.text = Faculty.ravenclaw.definition
-            
-        } else if slytherinTotal > gryffindorTotal && slytherinTotal > ravenclawTotal && slytherinTotal > hufflepuffTotal {
+        }
+    }
+    
+    func isUserSlytherin() {
+        if slytherinTotal > gryffindorTotal
+            && slytherinTotal > ravenclawTotal
+            && slytherinTotal > hufflepuffTotal {
             
             labelResult.text = "Слизерин! " + String(Faculty.slytherin.rawValue)
             labelResultFull.text = Faculty.slytherin.definition
         }
-        
-        print(gryffindorTotal, hufflepuffTotal, ravenclawTotal, slytherinTotal)
     }
     
+    func checkUserHouse() {
+        isUserGriffindor()
+        isUserHufflepuff()
+        isUserRavenclaw()
+        isUserSlytherin()
+    }
 }
