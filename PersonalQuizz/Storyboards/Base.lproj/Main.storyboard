@@ -256,13 +256,7 @@
                             <constraint firstItem="E6n-jw-e51" firstAttribute="centerY" secondItem="8JH-I9-y1J" secondAttribute="centerY" id="uvo-dY-Sel"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="AI4-OU-cG4">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="QlV-uU-TfV">
-                            <connections>
-                                <segue destination="jbX-vZ-Dch" kind="show" id="hDM-Tz-mIx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="AI4-OU-cG4"/>
                     <connections>
                         <outlet property="multipleStackView" destination="E6n-jw-e51" id="p5p-U1-KrQ"/>
                         <outlet property="questionLabel" destination="bBn-2E-A4j" id="6az-nv-WTo"/>
@@ -308,7 +302,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш факультет - Пуфендуй" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZH1-96-zJn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш факультет - Пуфендуй" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZH1-96-zJn">
                                         <rect key="frame" x="47.5" y="44" width="248.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -326,12 +320,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результат" id="fsV-pp-lEI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hbv-Kp-fUf">
+                        <barButtonItem key="rightBarButtonItem" title="Пройти заново" id="Hbv-Kp-fUf">
                             <connections>
                                 <action selector="barButtonExit:" destination="jbX-vZ-Dch" id="quc-IA-8hJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labelResult" destination="Q44-Bb-ma8" id="6Ck-wS-uws"/>
+                        <outlet property="labelResultFull" destination="ZH1-96-zJn" id="r0C-FI-6XB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdz-Zc-PlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,9 +354,6 @@
             <point key="canvasLocation" x="925.95419847328242" y="-27.464788732394368"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="jIr-9W-JzW"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

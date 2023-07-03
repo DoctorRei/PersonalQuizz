@@ -32,7 +32,7 @@ class QuestionsViewController: UIViewController {
     
     private let questions = Questions.getQuestions()
     private var questionIndex = 0
-    private var answerschosen: [Answer] = []
+    private var answersChosen: [Answer] = []
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
@@ -47,7 +47,7 @@ class QuestionsViewController: UIViewController {
     @IBAction func singleButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return}
         let currentAnswer = currentAnswers[buttonIndex]
-        answerschosen.append(currentAnswer)
+        answersChosen.append(currentAnswer)
         
         nextQuestion()
         
@@ -56,7 +56,7 @@ class QuestionsViewController: UIViewController {
     @IBAction func multipleButtonPressed() {
         for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
             if multipleSwitch.isOn {
-                answerschosen.append(answer)
+                answersChosen.append(answer)
             }
         }
         nextQuestion()
@@ -64,7 +64,7 @@ class QuestionsViewController: UIViewController {
     
     @IBAction func rangedButtonPressed() {
         let index = lrintf(rangedSlider.value)
-        answerschosen.append(currentAnswers[index])
+        answersChosen.append(currentAnswers[index])
         
         nextQuestion()
     }
@@ -96,6 +96,8 @@ extension QuestionsViewController {
         
         showCurrentAnswers(for: currentQuestion.responseType)
     }
+    
+    // MARK: - Func
     
     func showCurrentAnswers(for type: ResponseType) {
         switch type {
@@ -142,5 +144,15 @@ extension QuestionsViewController {
         
         performSegue(withIdentifier: "showResult", sender: nil)
     }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let finalAnswers = segue.destination as? ResultViewController else {return}
+        finalAnswers.resultCamp = answersChosen.map{$0.faculty}
+        
+    }
+    
+    
     
 }
