@@ -13,6 +13,9 @@ class ResultViewController: UIViewController {
     @IBOutlet var labelResultFull: UILabel!
     
     var resultCamp: [Faculty] = []
+    
+    var totalResults: [String: Int] = [:]
+    
     var gryffindorTotal = 0
     var hufflepuffTotal = 0
     var ravenclawTotal = 0
@@ -23,8 +26,7 @@ class ResultViewController: UIViewController {
         self.navigationItem.hidesBackButton.toggle()
         print(resultCamp)
         print(type(of: resultCamp))
-        checkResult(resultCamp)
-        checkUserHouse()
+        resultHouse()
         
     }
     
@@ -36,24 +38,20 @@ class ResultViewController: UIViewController {
     
     // MARK: - Methods
     
-    func setupUI() {
-        
-    }
-    
     func checkResult(_ userFaculty: [Faculty]) {
         
-        
-        for i in userFaculty {
-            if i == .gryffindor {
+        for answer in userFaculty {
+            if answer == .gryffindor {
                 gryffindorTotal += 1
-            } else if i == .hufflepuff {
+            } else if answer == .hufflepuff {
                 hufflepuffTotal += 1
-            } else if i == .ravenclaw {
+            } else if answer == .ravenclaw {
                 ravenclawTotal += 1
-            } else if i == .slytherin {
+            } else if answer == .slytherin {
                 slytherinTotal += 1
             }
         }
+        
     }
     
     func isUserGriffindor() {
@@ -103,4 +101,79 @@ class ResultViewController: UIViewController {
         isUserRavenclaw()
         isUserSlytherin()
     }
+    
+    func ifTheSameGryffindor() {
+        if gryffindorTotal != 0 {
+            if gryffindorTotal == hufflepuffTotal  {
+                gryffindorTotal += slytherinTotal
+                hufflepuffTotal += ravenclawTotal + 1
+            } else if gryffindorTotal == ravenclawTotal {
+                gryffindorTotal += hufflepuffTotal
+                ravenclawTotal += slytherinTotal + 1
+            } else if gryffindorTotal == slytherinTotal {
+                gryffindorTotal += hufflepuffTotal
+                slytherinTotal += ravenclawTotal + 1
+            }
+        }
+    }
+    
+    func ifTheSameHufflepuff() {
+        if hufflepuffTotal != 0 {
+            if gryffindorTotal == hufflepuffTotal  {
+                gryffindorTotal += slytherinTotal
+                hufflepuffTotal += ravenclawTotal + 1
+            } else if hufflepuffTotal == ravenclawTotal {
+                gryffindorTotal += hufflepuffTotal + 1
+                ravenclawTotal += slytherinTotal
+            } else if hufflepuffTotal == slytherinTotal {
+                gryffindorTotal += hufflepuffTotal + 1
+                slytherinTotal += ravenclawTotal
+            }
+        }
+    }
+    
+    func ifTheSameRavenclaw() {
+        if ravenclawTotal != 0 {
+            if ravenclawTotal == hufflepuffTotal  {
+                ravenclawTotal += slytherinTotal + 1
+                hufflepuffTotal += gryffindorTotal
+            } else if gryffindorTotal == ravenclawTotal {
+                gryffindorTotal += hufflepuffTotal
+                ravenclawTotal += slytherinTotal + 1
+            } else if ravenclawTotal == slytherinTotal {
+                ravenclawTotal += hufflepuffTotal
+                slytherinTotal += gryffindorTotal + 1
+            }
+        }
+    }
+    
+    func ifTheSameSlytherin() {
+        if slytherinTotal != 0 {
+            if slytherinTotal == hufflepuffTotal  {
+                slytherinTotal += gryffindorTotal + 1
+                hufflepuffTotal += ravenclawTotal
+            } else if slytherinTotal == ravenclawTotal {
+                hufflepuffTotal += gryffindorTotal
+                slytherinTotal += ravenclawTotal + 1
+            } else if gryffindorTotal == slytherinTotal {
+                gryffindorTotal += hufflepuffTotal
+                slytherinTotal += ravenclawTotal + 1
+            }
+        } }
+        
+        func ifTheSameCorrect() {
+            ifTheSameGryffindor()
+            ifTheSameHufflepuff()
+            ifTheSameRavenclaw()
+            ifTheSameSlytherin()
+        }
+        
+        
+        func resultHouse() {
+            checkResult(resultCamp)
+            checkUserHouse()
+        }
+    
+    
 }
+
