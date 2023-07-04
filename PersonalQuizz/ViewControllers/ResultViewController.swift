@@ -9,31 +9,25 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
+    // MARK: IBOutlets
+    
     @IBOutlet var labelResult: UILabel!
     @IBOutlet var labelResultFull: UILabel!
     
     var resultCamp: [Faculty] = []
     
-    
-    //    var gryffindorTotal = 0
-    //    var hufflepuffTotal = 0
-    //    var ravenclawTotal = 0
-    //    var slytherinTotal = 0
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton.toggle()
-        print(resultCamp)
-        print(type(of: resultCamp))
         facultyResult()
-        
-        
     }
     
+    // MARK: - IBAction
     
     @IBAction func barButtonExit(_ sender: UIBarButtonItem) {
         view.window?.rootViewController?.dismiss(animated: true)
-        
     }
     
     // MARK: - Methods
@@ -49,12 +43,9 @@ class ResultViewController: UIViewController {
             }
         }
         
-        print(userPickedAnswers)
         let sortedResultFaculty = userPickedAnswers.sorted { $0.value > $1.value }
-        print(sortedResultFaculty)
         guard let resultFaculty = sortedResultFaculty.first?.key else { return }
-        print(resultFaculty)
-        
+
         updateUI(resultFaculty)
         
     }

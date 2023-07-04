@@ -8,7 +8,7 @@
 import UIKit
 
 class QuestionsViewController: UIViewController {
-
+    
     @IBOutlet var questionProgressView: UIProgressView!
     @IBOutlet var questionLabel: UILabel!
     
@@ -43,14 +43,13 @@ class QuestionsViewController: UIViewController {
         updateUI()
         
     }
-
+    
     @IBAction func singleButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return}
         let currentAnswer = currentAnswers[buttonIndex]
         answersChosen.append(currentAnswer)
         
         nextQuestion()
-        
     }
     
     @IBAction func multipleButtonPressed() {
@@ -115,7 +114,6 @@ extension QuestionsViewController {
         
         for (button, answer) in zip(singleButtons, answers) {
             button.setTitle(answer.title, for: .normal)
-            
         }
     }
     
@@ -145,14 +143,9 @@ extension QuestionsViewController {
         performSegue(withIdentifier: "showResult", sender: nil)
     }
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let finalAnswers = segue.destination as? ResultViewController else {return}
         finalAnswers.resultCamp = answersChosen.map{$0.faculty}
         
     }
-    
-    
-    
 }
