@@ -57,11 +57,11 @@ struct Answer {
     let faculty: Faculty
 }
 
-enum Faculty: Character {
-    case gryffindor = "🦁"
-    case hufflepuff = "🦡"
-    case ravenclaw = "🦅"
-    case slytherin = "🐍"
+enum Faculty: String {
+    case gryffindor = "Гриффиндор! 🦁"
+    case hufflepuff = " Хаффлпафф! 🦡"
+    case ravenclaw = "Равенкло! 🦅"
+    case slytherin = "Слизерин! 🐍"
     
     var definition: String {
         switch self {
